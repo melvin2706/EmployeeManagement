@@ -1,0 +1,25 @@
+<tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Options</th>
+</tr>
+{% for service in services %}
+    <tr class="list">
+        <td>{{service.name}}</td>
+        <td>{{service.description}}</td>
+        <td class="">
+            <span class="w3-button w3-small w3-round w3-blue"
+                    hx-get="/service/{{service.id}}"
+                    hx-target="#service"
+                    hx-swap="innerHTML swap:0.0s"
+                    onclick="document.getElementById('service').style.display='block'"
+                    >&quest;</span>
+            <span class="w3-button w3-small w3-round w3-red"
+                    hx-get="/delete_service/{{service.id}}"
+                    hx-target=".w3-table-all">&times;</span>
+
+        </td>
+        
+    </tr>
+{% endfor %}
+

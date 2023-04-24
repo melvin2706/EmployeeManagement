@@ -1,0 +1,29 @@
+{% load static %}
+<div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-teal"> 
+        <span onclick="
+          document.getElementById('department').style.display='none'
+          document.getElementById('department').innerHTML=''" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h2>{{department.name | upper}}</h2>
+      </header>
+      <div class="w3-container">
+        <p>name : {{department.name}}</p>
+        <p>description : {{department.description}}</p>
+      </div>
+      <div class="w3-container">
+        <h4 class="w3-border-bottom">Services</h4>
+        <ul class="w3-ul">
+          {% for service in services %}
+            <li>{{service.name}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <!-- <footer class="w3-container w3-padding">
+        <button class="w3-button w3-blue">&plus;add service</button>
+        <button class="w3-button w3-amber">&uparrow;update info</button>
+      </footer> -->
+</div>
+
+
+  

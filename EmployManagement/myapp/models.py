@@ -22,8 +22,27 @@ class Service(models.Model):
         return self.name
 
 
+class Project(models.Model):
+    name = models.CharField(max_length = 150)
+    description = models.TextField()
+    date_start = models.DateField(auto_now=False, auto_now_add=False)
+    date_end = models.DateField(auto_now=False, auto_now_add=False)
+
+    def __str__(self):
+        return self.name
+
+
+class Meeting(models.Model):
+    subject = models.CharField(max_length = 150)
+    description = models.TextField()
+    date = models.DateField(auto_now=False, auto_now_add=False)
+    start_time = models.TimeField(auto_now=False, auto_now_add=False)
+    end_time = models.TimeField(auto_now=False, auto_now_add=False)
+    
+
+    def __str__(self):
+        return self.subject
+
+
 class CustomUser(AbstractUser):
     service = models.ForeignKey(Service, on_delete=models.CASCADE, null=True)
-    
-    
-    

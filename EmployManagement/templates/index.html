@@ -3,7 +3,7 @@
 <header class="w3-container" style="padding-top:22px">
     <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
   </header>
-
+  {% if request.user.is_staff == True %}
   <div class="w3-row-padding w3-margin-bottom">
     <div class="w3-quarter">
         <div class="w3-container w3-red w3-padding-16">
@@ -17,7 +17,7 @@
       </div>
       <div class="w3-quarter">
         <div class="w3-container w3-blue w3-padding-16">
-          <div class="w3-left"><i class="fa fa-clock-o w3-xxxlarge"></i></div>
+          <div class="w3-left"><i class="fa fa-table w3-xxxlarge"></i></div>
           <div class="w3-right">
             <h3>99</h3>
           </div>
@@ -36,4 +36,5 @@
         </div>
       </div>
     </div>
+    {% endif %}
 {% endblock content %}

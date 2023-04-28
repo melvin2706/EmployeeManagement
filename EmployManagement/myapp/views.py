@@ -92,3 +92,85 @@ def delete_service(request, pk):
     service = Service.objects.get(id = pk)
     service.delete()
     return redirect('/services/')
+
+
+#list all meetings
+def meeting_index(request):
+    meetings = Meeting.objects.all()
+    return render(request, 'meeting.html',{'meetings':meetings})
+
+
+def all_meetings(request):
+    meetings = Meeting.objects.all()
+    return render(request,'meetingList.html',{'meetings':meetings})
+
+# meeting details
+def meeting(request, pk):
+    meeting = Meeting.objects.get(id = pk)
+    #services = Service.objects.filter(department=department)
+    return render(request, 'meeting_detail.html',{'meeting':meeting})
+
+#add a meeting
+def add_meeting(request):
+    meetings = Department.objects.all()
+    if request.method == 'POST':
+        meeting_subject = request.POST['subject']
+        meeting_description = request.POST['description']
+        meeting_date = request.POST['date']
+        meeting_start = request.POST['start_time']
+        meeting_end = request.POST['end_time']
+        meeting = Meeting(subject=meeting_subject, description=meeting_description, date=meeting_date, start_time=meeting_start, end_time=meeting_end)
+        meeting.save()
+        return redirect('/meetings/')
+
+# update meeting details
+def update_meeting(request, pk):
+    meeting = Meeting.objects.get(id = pk)
+    return
+
+#delete a meeting
+def delete_meeting(request, pk):
+    meeting = Meeting.objects.get(id = pk)
+    meeting.delete()
+    return redirect('/meetings/')
+
+
+
+#list all projects
+def project_index(request):
+    projects = Project.objects.all()
+    return render(request, 'project.html',{'projects':projects})
+
+
+def all_projects(request):
+    projects = Project.objects.all()
+    return render(request,'projectList.html',{'projects':projects})
+
+# project details
+def project(request, pk):
+    project = Meeting.objects.get(id = pk)
+    #services = Service.objects.filter(department=department)
+    return render(request, 'project_detail.html',{'project':project})
+
+#add a meeting
+def add_project(request):
+    projects = Project.objects.all()
+    if request.method == 'POST':
+        project_name = request.POST['name']
+        project_description = request.POST['description']
+        project_start = request.POST['date_start']
+        project_end = request.POST['date_end']
+        project = Project(name=project_name, description=project_description, date_start=project_start, date_end=project_end)
+        project.save()
+        return redirect('/projects/')
+
+# update project details
+def update_project(request, pk):
+    project = Project.objects.get(id = pk)
+    return
+
+#delete a project
+def delete_project(request, pk):
+    project = Project.objects.get(id = pk)
+    project.delete()
+    return redirect('/projects/')

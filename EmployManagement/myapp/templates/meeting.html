@@ -1,0 +1,24 @@
+
+<div class="w3-bar w3-gray w3-padding">
+    <button class="w3-bar-item w3-button w3-hover-black w3-padding-16"
+            onclick="openCity('ListMeetings')">List Meetings</button>
+    <button class="w3-bar-item w3-button w3-hover-black w3-padding-16" 
+            onclick="openCity('addMeeting')">addMeeting</button>
+  </div>
+
+<div id="ListMeetings" class="w3-container w3-display-container city ">
+    <h2>Meeting List</h2>
+    <table class="w3-table-all">
+            {% include 'meetingList.html' %}
+        </tbody>
+    </table>
+</div>
+  
+<div id="addMeeting" class="w3-container w3-display-container city" style="display:none">
+    <h2>Add Meeting</h2>
+    {% include 'add_meeting.html' %}
+</div>
+
+<div id="meeting" class="w3-modal w3-container w3-padding-48"></div>
+
+    

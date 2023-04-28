@@ -1,0 +1,33 @@
+{% load static %}
+<div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-teal"> 
+        <span onclick="
+          document.getElementById('meeting').style.display='none'
+          document.getElementById('meeting').innerHTML=''" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h2>{{meeting.subject | upper}}</h2>
+      </header>
+      <div class="w3-container w3-sans-serif" style="overflow-x: hidden;">
+        <p>subject : {{meeting.subject}}</p>
+        <p>description : {{meeting.description}}</p>
+        <p>date : {{meeting.date}}</p>
+        <p>
+            <span class="w3-large">start:{{meeting.start_time}}</span>
+            &ThickSpace;&ThickSpace;&ThickSpace;
+            <span class="w3-large">end:{{meeting.end_time}}</span>
+        </p>
+      </div>
+      <div class="w3-container">
+        <h4 class="w3-border-bottom"></h4>
+        <ul class="w3-ul">
+          
+        </ul>
+      </div>
+      <!-- <footer class="w3-container w3-padding">
+        <button class="w3-button w3-blue">&plus;add service</button>
+        <button class="w3-button w3-amber">&uparrow;update info</button>
+      </footer> -->
+</div>
+
+
+  

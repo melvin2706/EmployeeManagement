@@ -3,19 +3,19 @@
     <th>Description</th>
     <th>Options</th>
 </tr>
-{% for service in services %}
+{% for project in projects %}
     <tr class="list">
-        <td class="w3-container" style="overflow-x: hidden; width: 15%;">{{service.name}}</td>
-        <td style="overflow-x: hidden; width:60%;">{{service.description | truncatewords:12}}</td>
+        <td class="w3-container" style="overflow-x: hidden; width: 15%;">{{project.name}}</td>
+        <td style="overflow-x: hidden; width:60%;">{{project.description | truncatewords:12}}</td>
         <td style="overflow-x: hidden; width: 20%;">
             <span class="w3-button w3-small w3-round w3-blue"
-                    hx-get="/service/{{service.id}}"
-                    hx-target="#service"
+                    hx-get="/project/{{project.id}}"
+                    hx-target="#project"
                     hx-swap="innerHTML swap:0.0s"
-                    onclick="document.getElementById('service').style.display='block'"
+                    onclick="document.getElementById('project').style.display='block'"
                     >&quest;</span>
             <span class="w3-button w3-small w3-round w3-red"
-                    hx-get="/delete_service/{{service.id}}"
+                    hx-get="/delete_project/{{project.id}}"
                     hx-target=".w3-table-all"
                     hx-swap="innerHTML swap:0.5">&times;</span>
 

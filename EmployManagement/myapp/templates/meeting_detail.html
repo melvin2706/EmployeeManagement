@@ -4,7 +4,7 @@
         <span onclick="
           document.getElementById('meeting').style.display='none'
           document.getElementById('meeting').innerHTML=''" 
-        class="w3-button w3-display-topright">&times;</span>
+        class="w3-button w3-hover-red w3-display-topright">&times;</span>
         <h2>{{meeting.subject | upper}}</h2>
       </header>
       <div class="w3-container w3-sans-serif" style="overflow-x: hidden;">
@@ -23,10 +23,9 @@
           
         </ul>
       </div>
-      <!-- <footer class="w3-container w3-padding">
-        <button class="w3-button w3-blue">&plus;add service</button>
-        <button class="w3-button w3-amber">&uparrow;update info</button>
-      </footer> -->
+      <footer class="w3-container w3-padding">
+        <button class="w3-button w3-amber"><i class="fa fa-arrow-up"></i>&thinsp;update</button>
+      </footer>
 </div>
 
 

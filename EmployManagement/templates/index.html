@@ -6,30 +6,40 @@
   {% if request.user.is_staff == True %}
   <div class="w3-row-padding w3-margin-bottom">
     <div class="w3-quarter">
-        <div class="w3-container w3-red w3-padding-16">
-          <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
+        <div class="w3-container w3-cyan w3-padding-16">
+          <div class="w3-left"><i class="fa fa-square w3-xxxlarge"></i></div>
           <div class="w3-right">
-            <h3>52</h3>
+            <h3>{{department_num}}</h3>
           </div>
           <div class="w3-clear"></div>
-          <h4>Messages</h4>
+          <h4>Departments</h4>
+        </div>
+      </div>
+      <div class="w3-quarter">
+        <div class="w3-container w3-teal w3-padding-16">
+          <div class="w3-left"><i class="fa fa-bullseye fa-fw w3-xxxlarge"></i></div>
+          <div class="w3-right">
+            <h3>{{service_num}}</h3>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>Services</h4>
         </div>
       </div>
       <div class="w3-quarter">
         <div class="w3-container w3-blue w3-padding-16">
-          <div class="w3-left"><i class="fa fa-table w3-xxxlarge"></i></div>
+          <div class="w3-left"><i class="fa fa-book w3-xxxlarge"></i></div>
           <div class="w3-right">
-            <h3>99</h3>
+            <h3>{{project_num}}</h3>
           </div>
           <div class="w3-clear"></div>
-          <h4>Meetings</h4>
+          <h4>Projects</h4>
         </div>
       </div>
       <div class="w3-quarter">
         <div class="w3-container w3-orange w3-text-white w3-padding-16">
           <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
           <div class="w3-right">
-            <h3>50</h3>
+            <h3>{{user_num}}</h3>
           </div>
           <div class="w3-clear"></div>
           <h4>Users</h4>

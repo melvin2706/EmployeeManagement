@@ -1,0 +1,41 @@
+<div id="ListTasks" class="w3-container w3-display-container">
+    <h2>Task List</h2>
+    <table class="w3-table-all">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Project</th>
+            <th>Responsibility</th>
+            <th>Options</th>
+        </tr>
+        {% for task in tasks %}
+            <tr class="list">
+                <td class="w3-container" style="overflow-x: hidden; width: 15%;">{{task.name}}</td>
+                <td style="overflow-x: hidden; width:35%;">{{task.description | truncatewords:12}}</td>
+                <td style="overflow-x: hidden; width:15%;">{{task.project.name}}</td>
+                <td style="overflow-x: hidden; width:20%;">{{task.responsible.username}}</td>
+                <td style="overflow-x: hidden; width: 10%;">
+                    <span class="w3-button w3-small w3-round w3-blue"
+                            hx-get="/task/{{task.id}}"
+                            hx-target="#task"
+                            hx-swap="innerHTML swap:0.02s"
+                            onclick="w3.show('#task')"
+                            >&quest;</span>
+                    <span class="w3-button w3-small w3-round w3-red"
+                            hx-get="/delete_task/{{task.id}}"
+                            hx-target=".container-content"
+                            hx-swap="innerHTML swap:0.2">&times;</span>
+        
+                </td>
+                
+            </tr>
+        {% endfor %} 
+        </tbody>
+    </table>
+</div>
+
+<div id="task" class="w3-modal w3-container w3-padding-48">
+    {% include 'department_detail.html' %}
+</div>
+
+

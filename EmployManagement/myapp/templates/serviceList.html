@@ -1,26 +1,35 @@
-<tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Options</th>
-</tr>
-{% for service in services %}
-    <tr class="list">
-        <td class="w3-container" style="overflow-x: hidden; width: 15%;">{{service.name}}</td>
-        <td style="overflow-x: hidden; width:60%;">{{service.description | truncatewords:12}}</td>
-        <td style="overflow-x: hidden; width: 20%;">
-            <span class="w3-button w3-small w3-round w3-blue"
-                    hx-get="/service/{{service.id}}"
-                    hx-target="#service"
-                    hx-swap="innerHTML swap:0.0s"
-                    onclick="document.getElementById('service').style.display='block'"
-                    >&quest;</span>
-            <span class="w3-button w3-small w3-round w3-red"
-                    hx-get="/delete_service/{{service.id}}"
-                    hx-target=".w3-table-all"
-                    hx-swap="innerHTML swap:0.5">&times;</span>
-
-        </td>
-        
-    </tr>
-{% endfor %}
+<div id="ListServices" class="w3-container w3-padding-large w3-display-container city ">
+    <h2>Service List</h2>
+    <table class="w3-table-all w3-padding-large">
+        <tbody class="w3-padding-large">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Options</th>
+            </tr>
+            {% for service in services %}
+                <tr class="list">
+                    <td class="w3-container" style="overflow-x: hidden; width: 15%;">{{service.name}}</td>
+                    <td style="overflow-x: hidden; width:60%;">{{service.description | truncatewords:12}}</td>
+                    <td style="overflow-x: hidden; width: 20%;">
+                        <span class="w3-button w3-small w3-round w3-blue"
+                                hx-get="/service/{{service.id}}"
+                                hx-target="#service"
+                                hx-swap="innerHTML swap:0.0s"
+                                onclick="w3.show('#service')"
+                                >&quest;</span>
+                        <span class="w3-button w3-small w3-round w3-red"
+                                hx-get="/delete_service/{{service.id}}"
+                                hx-target=".container-content"
+                                hx-swap="innerHTML swap:0.5">&times;</span>
+            
+                    </td>
+                    
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+  
+<div id="service" class="w3-modal w3-container w3-padding-48"></div>
 

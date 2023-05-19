@@ -1,0 +1,81 @@
+<form action="" class="w3-container w3-card-4 w3-large">
+    {% csrf_token %}
+    <div class="w3-row-padding w3-padding">
+        <p> 
+            <input class="w3-input w3-border" name="name" type="text" placeholder="User Name">
+        </p>
+    </div>
+    <div class="w3-row-padding">
+      <p class="w3-half">
+        <input class="w3-input w3-border" name="fname" type="text" placeholder="First Name">
+      </p>
+      <p class="w3-half">
+        <input class="w3-input w3-border" name="lname" type="text" placeholder="Last Name">
+      </p>
+    </div>
+    <div class="w3-row-padding">
+      <p class="w3-half">
+        <input class="w3-input w3-border" name="mail" type="mail" placeholder="Email Address">
+      </p>
+      <p class="w3-half">
+        <input class="w3-input w3-border" name="tel" type="tel" placeholder="phone number">
+      </p>
+    </div>
+    <div class="w3-row-padding">
+      <p class="w3-half">
+        <input class="w3-input w3-border" name="birth_date" type="date" placeholder="Date of birth">
+      </p>
+      <p class="w3-half">
+        <input class="w3-input w3-border" name="birth_place"  type="text" placeholder="Place of Birth">
+      </p>
+    </div>
+    <div class="w3-row-padding">
+      <p class="w3-half">
+        <label class="w3-text-blue">Sex</label>
+        <select class="w3-select" name="sex">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </p>
+      <p class="w3-half">
+        <label class="w3-text-blue">Matrimonial Situation</label>
+        <select class="w3-select" name="matrimonial">
+          <option value="Single">Single</option>
+          <option value="Maried">Maried</option>
+        </select>
+      </p>
+    </div>
+    <div class="w3-row-padding">
+      <p class="w3-half">
+        <label class="w3-text-blue">Service</label>
+        <select class="w3-select" name="service" disabled>
+          <option value="{{service.name}}">{{service.name}}</option>
+        </select>
+      </p>
+      <p class="w3-half">
+        <label class="w3-text-blue">Post</label>
+        <select class="w3-select" name="post">
+          {% for post in posts %}
+          <option value="{{post.name}}">{{post.name}}</option>
+          {% endfor %}
+        </select>
+      </p>
+    </div>
+    <p class="w3-padding">
+      <button class="w3-btn w3-blue"
+              hx-post="/add_user_service/{{service.id}}"
+              hx-target=".w3-modal-content"
+              hx-trigger="click"
+              hx-swap="innerHTML swap:0.5s"
+              >Register
+      </button>
+      <button class="w3-button w3-amber"
+                hx-get="/service/{{service.id}}"
+                hx-target=".w3-modal-content"
+                hx-trigger="click"
+                hx-swap="innerHTML swap:0.1s">
+                cancel
+      </button>
+      </p>
+</form>

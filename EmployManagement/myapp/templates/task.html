@@ -1,0 +1,23 @@
+
+<div class="w3-bar w3-gray w3-padding">
+    <button class="w3-bar-item w3-button w3-hover-black w3-padding-16"
+            hx-get="/tasks/"
+            hx-trigger="click"
+            hx-target=".container-content"
+            hx-swap="innerHTML swap:0.3s">List tasks</button>
+    <button class="w3-bar-item w3-button w3-hover-black w3-padding-16"
+            hx-get="/add_task/"
+            hx-target=".container-content"
+            hx-trigger="click"
+            hx-swap="innerHTML swap:0.2s">Add task</button>
+</div>
+
+<div class="w3-container w3-display-container container-content">
+
+</div>
+
+
+
+  
+
+    

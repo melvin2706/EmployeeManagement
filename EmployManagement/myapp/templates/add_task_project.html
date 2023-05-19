@@ -1,0 +1,36 @@
+<form class="w3-container w3-card-4" action="">
+    {% csrf_token %}
+    <p>      
+        <label class="w3-text-blue"><b>Name</b></label>
+        <input class="w3-input w3-border" name="name" type="text">
+    </p>
+    <p>      
+        <label class="w3-text-blue"><b>Description</b></label>
+        <textarea class="w3-input w3-border" name="description" cols="10" rows="10"></textarea>
+    </p>
+    
+    <p>      
+        <label class="w3-text-blue"><b>Department</b></label>
+        <select class="w3-input" name="project" id="" disabled>
+            <option value="{{project.name}}">{{project.name}}</option>    
+        </select>
+    </p>
+    <!-- <p>      
+        <label class="w3-text-blue"><b>Responsibility</b></label>
+        <select class="w3-input" name="responsibility_name" id="" disabled>
+            <option value=""></option>    
+        </select>
+    </p> -->
+    <p>
+        <button class="w3-button w3-blue"
+                hx-post="/add_project_task/{{project.id}}"
+                hx-target=".w3-modal-content"
+                hx-swap="innerHTML swap:0.3s">Register</button>
+        <button class="w3-button w3-amber"
+                hx-get="/project/{{project.id}}"
+                hx-target=".w3-modal-content"
+                hx-trigger="click"
+                hx-swap="innerHTML swap:0.1s">cancel</button>
+    </p>
+
+  </form>

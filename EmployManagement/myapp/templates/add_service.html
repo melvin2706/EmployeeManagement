@@ -1,28 +1,39 @@
-<form class="w3-container w3-card-4" action="">
-    {% csrf_token %}
-    <p>      
-        <label class="w3-text-blue"><b>Name</b></label>
-        <input class="w3-input w3-border" name="name" type="text">
-    </p>
-    <p>      
-        <label class="w3-text-blue"><b>Description</b></label>
-        <textarea class="w3-input w3-border" name="description" cols="10" rows="10"></textarea>
-    </p>
-    <p>      
-        <label class="w3-text-blue"><b>Department</b></label>
-        <select name="department_name" id="">
-            {% for department in departments %}
-                <option value="{{department.name}}">{{department.name}}</option>
-            {% endfor %}     
-        </select>
-    </p>
-    <p><button onmouseleave="
-                        var nameField = document.querySelector('input[name=name]').value='';
-                        var descriptionField = document.querySelector('textarea[name=description]').value='';
-                        var departmentField = document.querySelector('select[name=department_name]').value='';
-                        openCity('ListServices')"
-                class="w3-btn w3-blue"
-                hx-post="/add_service/"
-                hx-target=".w3-table-all"
-                hx-swap="innerHTML">Register</button></p>
-  </form>
+<div id="addService" class="w3-container w3-display-container">
+    <h2>Add Service</h2>
+    <form class="w3-container w3-card-4" action="">
+        {% csrf_token %}
+        <p>      
+            <label class="w3-text-blue"><b>Name</b></label>
+            <input class="w3-input w3-border" name="name" type="text">
+        </p>
+        <p>      
+            <label class="w3-text-blue"><b>Description</b></label>
+            <textarea class="w3-input w3-border" name="description" cols="10" rows="10"></textarea>
+        </p>
+        <p>      
+            <label class="w3-text-blue"><b>Department</b></label>
+            <select class="w3-input" name="department_name" id="">
+                {% for department in departments %}
+                    <option value="{{department.name}}">{{department.name}}</option>
+                {% endfor %}     
+            </select>
+        </p>
+        <p>
+            <button
+                    class="w3-btn w3-blue"
+                    hx-target=".container-content"
+                    hx-post="/add_service/"
+                    hx-target=".w3-table-all"
+                    hx-swap="innerHTML">
+                    Register
+            </button>
+            <button
+              class="w3-btn w3-amber"
+              hx-post="/services/"
+              hx-target=".container-content"
+              hx-swap="innerHTML swap:0.5s"
+              hx-trigger="click">Cancel
+          </button>
+        </p>
+      </form>
+</div>

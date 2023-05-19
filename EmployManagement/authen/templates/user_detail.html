@@ -1,0 +1,39 @@
+{% load static %}
+<div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-red"> 
+        <span onclick="
+          document.getElementById('user').style.display='none'
+          document.getElementById('user').innerHTML=''" 
+        class="w3-button w3-hover-red w3-display-topright">&times;
+      </span>
+      </header>
+      <div class="w3-container" style="overflow-x: hidden;">
+
+      </div>
+
+
+      <div class="w3-main w3-row">
+        <div class="w3-third w3-hide-small w3-padding" style="height: 100%;">
+          <img class="w3-round  w3-animate-top " src="{% static 'img/streetart2.jpg' %} " width="100%">
+        </div>
+        <div class="w3-container person w3-rest">
+          <br>
+          <h3>User Name: {{user.username | upper}}</h3>
+          <h3>Active Status: {{user.is_active}}</h3>
+          <h4>Last Login: {{user.last_login}}</h4>
+          <hr>
+          <h4>Full Name: {{user.last_name | capfirst}}&ThickSpace;{{user.first_name | capfirst}}</h4>
+          <h4>Email: {{user.email}}</h4>
+          <h4>Contact: {{user.contact}}</h4>
+          <h4>Service: {{user.service}}</h4>
+          <h4>Post: {{user.post}}</h4>
+        </div>
+      </div>
+        
+      <footer class="w3-container w3-padding">
+        <button class="w3-button w3-blue"><i class="fa fa-pencil"></i>&thinsp;update</button>
+      </footer>
+
+</div>
+
+  

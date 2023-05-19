@@ -1,0 +1,26 @@
+
+<div class="w3-bar w3-gray w3-padding">
+    <button class="w3-bar-item w3-button w3-hover-black w3-padding-16"
+    hx-get="/posts/"
+    hx-trigger="click"
+    hx-target=".container-content"
+    hx-swap="innerHTML swap:0.3s"">List posts</button>
+    <button class="w3-bar-item w3-button w3-hover-black w3-padding-16" 
+    hx-get="/add_post/"
+    hx-trigger="click"
+    hx-target=".container-content"
+    hx-swap="innerHTML swap:0.3s">Create Post</button>
+  </div>
+
+  
+<div class="w3-container w3-display-container container-content">
+
+</div>
+
+<div id="post" class="w3-modal w3-container w3-padding-48">
+    {% include 'post_detail.html' %}
+</div>
+
+  
+
+    

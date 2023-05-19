@@ -1,26 +1,23 @@
 
 <div class="w3-bar w3-gray w3-padding">
     <button class="w3-bar-item w3-button w3-hover-black w3-padding-16"
-            onclick="openCity('ListDepartments')">List Departments</button>
-    <button class="w3-bar-item w3-button w3-hover-black w3-padding-16" onclick="openCity('addDepartment')">addDepartment</button>
-  </div>
-
-<div id="ListDepartments" class="w3-container w3-display-container city">
-    <h2>Department List</h2>
-    <table class="w3-table-all">
-            {% include 'departmentList.html' %}
-        </tbody>
-    </table>
-</div>
-  
-<div id="addDepartment" class="w3-container w3-display-container city" style="display:none">
-    <h2>Add Department</h2>
-    {% include 'add_department.html' %}
+            hx-get="/departments/"
+            hx-trigger="click"
+            hx-target=".container-content"
+            hx-swap="innerHTML swap:0.3s">List Departments</button>
+    <button class="w3-bar-item w3-button w3-hover-black w3-padding-16"
+            hx-get="/add_department/"
+            hx-target=".container-content"
+            hx-trigger="click"
+            hx-swap="innerHTML swap:0.2s">Create Department</button>
 </div>
 
-<div id="department" class="w3-modal w3-container w3-padding-48">
-    {% include 'department_detail.html' %}
+<div class="w3-container w3-display-container container-content">
+
 </div>
+
+
+
   
 
     

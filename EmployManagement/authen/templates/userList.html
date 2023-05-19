@@ -1,0 +1,37 @@
+<div id="ListUsers" class="w3-container w3-display-container city ">
+    <h2>User List</h2>
+    <table class="w3-table-all">
+        <tr>
+            <th>Name</th>
+            <th>Service</th>
+            <th>Post</th>
+            <th>Staff</th>
+            <th>Options</th>
+        </tr>
+        {% for user in users %}
+            {% if user.is_staff == False %}
+            <tr class="list">
+                <td class="w3-container" style="overflow-x: hidden;">{{user.username}}</td>
+                <td style="overflow-x: hidden;">{{user.service}}</td>
+                <td style="overflow-x: hidden;">{{user.post}}</td>
+                <td></td>
+                <td style="overflow-x: hidden;">
+                    <span class="w3-button w3-small w3-round w3-blue"
+                            hx-get="/user/{{user.id}}"
+                            hx-target="#user"
+                            hx-swap="innerHTML swap:0.02s"
+                            onclick="w3.show('#user')"
+                            >&quest;</span>
+                    <span class="w3-button w3-small w3-round w3-red"
+                            hx-get="/delete_user/{{user.id}}"
+                            hx-target=".container-content"
+                            hx-swap="innerHTML swap:0.3s">&times;</span>
+        
+                </td>
+                
+            </tr>
+            {% endif %}
+        {% endfor %}        
+        </tbody>
+    </table>
+</div>

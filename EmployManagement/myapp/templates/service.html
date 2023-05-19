@@ -1,24 +1,19 @@
 
 <div class="w3-bar w3-gray w3-padding">
     <button class="w3-bar-item w3-button w3-hover-black w3-padding-16"
-            onclick="openCity('ListServices')">List Services</button>
+            hx-get="/services/"
+            hx-trigger="click"
+            hx-target=".container-content">List Services</button>
     <button class="w3-bar-item w3-button w3-hover-black w3-padding-16" 
-            onclick="openCity('addService')">addService</button>
-  </div>
-
-<div id="ListServices" class="w3-container w3-display-container city ">
-    <h2>Service List</h2>
-    <table class="w3-table-all">
-            {% include 'serviceList.html' %}
-        </tbody>
-    </table>
-</div>
-  
-<div id="addService" class="w3-container w3-display-container city" style="display:none">
-    <h2>Add Service</h2>
-    {% include 'add_service.html' %}
+            hx-get="/add_service/"
+            hx-trigger="click"
+            hx-target=".container-content">Create Service</button>
 </div>
 
-<div id="service" class="w3-modal w3-container w3-padding-48"></div>
+
+
+<div class="w3-container w3-display-container container-content">
+
+</div>
 
     

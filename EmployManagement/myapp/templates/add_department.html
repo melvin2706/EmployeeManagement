@@ -1,19 +1,30 @@
-<form class="w3-container w3-card-4" action="">
-    {% csrf_token %}
-    <p>      
-        <label class="w3-text-blue"><b>Name</b></label>
-        <input class="w3-input w3-border" name="name" type="text">
-    </p>
-    <p>      
-        <label class="w3-text-blue"><b>Description</b></label>
-        <textarea class="w3-input w3-border" name="description" cols="10" rows="10"></textarea>
-    </p>
-    <p><button type="button"  onmouseout="
-                var nameField = document.querySelector('input[name=name]').value='';
-                var descriptionField = document.querySelector('textarea[name=description]').value='';
-                openCity('ListDepartments')"
-                class="w3-btn w3-blue" 
-                hx-post="/add_department/"
-                hx-target=".w3-table-all"
-                hx-swap="innerHTML">Register</button></p>
-  </form>
+<div id="addDepartment" class="w3-container w3-display-container">
+    <h2>Add Department</h2>
+    <form class="w3-container w3-card-4" action="">
+        {% csrf_token %}
+        <p>      
+            <label class="w3-text-blue"><b>Name</b></label>
+            <input class="w3-input w3-border" name="name" type="text">
+        </p>
+        <p>      
+            <label class="w3-text-blue"><b>Description</b></label>
+            <textarea class="w3-input w3-border" name="description" cols="10" rows="10"></textarea>
+        </p>
+        <p>
+            <button type="button"
+                    class="w3-btn w3-blue"
+                    hx-trigger="click"
+                    hx-target=".container-content"
+                    hx-post="/add_department/"
+                    hx-swap="innerHTML">Register
+            </button>
+            <button
+            class="w3-btn w3-amber"
+            hx-post="/departments/"
+            hx-target=".container-content"
+            hx-swap="innerHTML swap:0.5s"
+            hx-trigger="click">Cancel
+            </button>
+        </p>
+    </form>
+</div>

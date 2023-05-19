@@ -1,22 +1,19 @@
 
 <div class="w3-bar w3-gray w3-padding">
     <button class="w3-bar-item w3-button w3-hover-black w3-padding-16"
-            onclick="openCity('ListProjects')">List Projects</button>
+            hx-get="/projects/"
+            hx-trigger="click"
+            hx-target=".container-content"
+            hx-swap="innerHTML swap:0.3s"">List Projects</button>
     <button class="w3-bar-item w3-button w3-hover-black w3-padding-16" 
-            onclick="openCity('addProject')">add Project</button>
+            hx-get="/add_project/"
+            hx-trigger="click"
+            hx-target=".container-content"
+            hx-swap="innerHTML swap:0.3s"">Create Project</button>
   </div>
 
-<div id="ListProjects" class="w3-container w3-display-container city ">
-    <h2>project List</h2>
-    <table class="w3-table-all">
-            {% include 'projectList.html' %}
-        </tbody>
-    </table>
-</div>
-  
-<div id="addProject" class="w3-container w3-display-container city" style="display:none">
-    <h2>Add project</h2>
-    {% include 'add_project.html' %}
+<div class="w3-container w3-display-container container-content">
+
 </div>
 
 <div id="project" class="w3-modal w3-container w3-padding-48"></div>

@@ -1,10 +1,10 @@
 {% load static %}
 <div class="w3-modal-content w3-animate-top w3-card-4">
-      <header class="w3-container w3-teal"> 
+      <header class="w3-container w3-teal">
         <span onclick="
         document.getElementById('service').style.display='none';
-        document.getElementById('service').innerHTML=''" 
-        class="w3-button w3-display-topright">&times;</span>
+        document.getElementById('service').innerHTML=''"
+        class="w3-button w3-hover-red w3-display-topright">&times;</span>
         <h2>{{service.name | upper}}</h2>
       </header>
       <div class="w3-container" style="overflow-x: hidden;">
@@ -12,8 +12,33 @@
         <p>description : {{service.description}}</p>
         <p>department : {{service.department.name}}</p>
       </div>
+      <div class="w3-container">
+        <div  class="w3-border-bottom w3-row">
+          <h3 class="w3-half">Employee List</h3>
+          <div class="w3-half">
+            <button class="w3-button w3-blue w3-right"
+                  hx-get="/add_user_service/{{service.id}}"
+                  hx-target=".w3-modal-content">&plus;<i class="fa fa-user"></i>&thinsp;user</button>
+          </div>
+        </div>
+        <ul class="w3-ul">
+          {% for user in users %}
+            <li>{{user.username}}
+              <!-- <span class="w3-button w3-small w3-round w3-blue fa fa-eye"
+              hx-get="/service/{{service.id}}"
+              hx-target=".w3-modal"
+              hx-swap="innerHTML swap:0.5"></span> -->
+            </li>
+
+          {% endfor %}
+        </ul>
+      </div>
       <footer class="w3-container w3-padding">
-        <button class="w3-button w3-amber">&uparrow;update info</button>
+        <button class="w3-button w3-amber"><i class="fa fa-arrow-up"></i>&thinsp;update</button>
+        <!-- <button class="w3-button w3-blue"
+        hx-get="/add_user_service/{{service.id}}"
+        hx-target=".w3-modal-content">&plus;<i class="fa fa-user"></i>&thinsp;user</button>
+       -->
       </footer>
 </div>
 

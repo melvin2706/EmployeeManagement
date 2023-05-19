@@ -1,26 +1,32 @@
-<tr>
-    <th>Subject</th>
-    <th>Description</th>
-    <th>Options</th>
-</tr>
-{% for meeting in meetings %}
-    <tr class="list">
-        <td class="w3-container" style="overflow-x: hidden; width: 15%;">{{meeting.subject}}</td>
-        <td class="w3-container" style="overflow-x: hidden; width:65%;">{{meeting.description| truncatewords:12 }}</td>
-        <td style="overflow-x: hidden; width:20%;">
-            <span class="w3-button w3-small w3-round w3-blue"
-                    hx-get="/meeting/{{meeting.id}}"
-                    hx-target="#meeting"
-                    hx-swap="innerHTML swap:0.0s"
-                    onclick="document.getElementById('meeting').style.display='block'"
-                    >&quest;</span>
-            <span class="w3-button w3-small w3-round w3-red"
-                    hx-get="/delete_meeting/{{meeting.id}}"
-                    hx-target=".w3-table-all"
-                    hx-swap="innerHTML swap:0.5">&times;</span>
-
-        </td>
+<div id="ListMeetings" class="w3-container w3-display-container ">
+    <h2>Meeting List</h2>
+    <table class="w3-table-all">
+        <tr>
+            <th>Subject</th>
+            <th>Description</th>
+            <th>Options</th>
+        </tr>
+        {% for meeting in meetings %}
+            <tr class="list">
+                <td class="w3-container" style="overflow-x: hidden; width: 15%;">{{meeting.subject}}</td>
+                <td class="w3-container" style="overflow-x: hidden; width:65%;">{{meeting.description| truncatewords:12 }}</td>
+                <td style="overflow-x: hidden; width:20%;">
+                    <span class="w3-button w3-small w3-round w3-blue"
+                            hx-get="/meeting/{{meeting.id}}"
+                            hx-target="#meeting"
+                            hx-swap="innerHTML swap:0.05s"
+                            onclick="w3.show('#meeting')"
+                            >&quest;</span>
+                    <span class="w3-button w3-small w3-round w3-red"
+                            hx-get="/delete_meeting/{{meeting.id}}"
+                            hx-target=".container-content"
+                            hx-swap="innerHTML swap:0.3s">&times;</span>
         
-    </tr>
-{% endfor %}
+                </td> 
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
 

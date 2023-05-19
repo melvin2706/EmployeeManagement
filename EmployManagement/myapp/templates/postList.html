@@ -1,0 +1,32 @@
+<div id="ListPosts" class="w3-container w3-display-container city">
+    <h2>post List</h2>
+    <table class="w3-table-all">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Options</th>
+        </tr>
+        {% for post in posts %}
+            <tr class="list">
+                <td class="w3-container" style="overflow-x: hidden; width: 15%;">{{post.name}}</td>
+                <td style="overflow-x: hidden; width:60%;">{{post.description | truncatewords:12}}</td>
+                <td style="overflow-x: hidden; width: 20%;">
+                    <span class="w3-button w3-small w3-round w3-blue"
+                            hx-get="/post/{{post.id}}"
+                            hx-target="#post"
+                            hx-swap="innerHTML swap:0.02s"
+                            onclick="w3.show('#post')"
+                            >&quest;</span>
+                    <span class="w3-button w3-small w3-round w3-red"
+                            hx-get="/delete_post/{{post.id}}"
+                            hx-target=".container-content"
+                            hx-swap="innerHTML swap:0.5">&times;</span>
+        
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+

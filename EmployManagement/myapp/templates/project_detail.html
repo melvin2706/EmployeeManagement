@@ -4,15 +4,33 @@
         <span onclick="
         document.getElementById('project').style.display='none';
         document.getElementById('project').innerHTML=''" 
-        class="w3-button w3-display-topright">&times;</span>
+        class="w3-button w3-hover-red w3-display-topright">&times;</span>
         <h2>{{project.name | upper}}</h2>
       </header>
       <div class="w3-container" style="overflow-x: hidden;">
         <p>name : {{project.name}}</p>
         <p>description : {{project.description}}</p>
       </div>
+      <div class="w3-container">
+        <div  class="w3-border-bottom w3-row">
+          <h3 class="w3-half">Task List</h3>
+          <div class="w3-half">
+            <button class="w3-button w3-blue w3-right"
+                    hx-get="/add_project_task/{{project.id}}"
+                    hx-target=".w3-modal-content">&plus;<i class="fa fa-user"></i>&thinsp;task</button>
+          </div>
+        </div>
+        <ul class="w3-ul">
+          {% for task in tasks %}
+            <li>
+              {{task.name}}
+            </li>
+
+          {% endfor %}
+        </ul>
+      </div>
       <footer class="w3-container w3-padding">
-        <button class="w3-button w3-amber">&uparrow;update info</button>
+        <button class="w3-button w3-amber"><i class="fa fa-arrow-up"></i>&thinsp;update</button>
       </footer>
 </div>
 
